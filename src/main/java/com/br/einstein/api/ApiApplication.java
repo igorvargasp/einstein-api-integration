@@ -26,8 +26,12 @@ public class ApiApplication {
 		
 		do {
 		new MessageResponse().ReadChatDetails(objSession);
+		 //String saida = 
 		new SendMessage().SendChatMessage(objSession);
-		api.syncChatSession(objSession);	
+		api.syncChatSession(objSession);
+		/*if(saida.equals("sair")) {
+		break;	
+		}*/
 		}while(!console.equals("sair"));
 		
 		

@@ -47,7 +47,7 @@ public void syncChatSession(JsonObject objSession) throws Exception {
     con.setRequestProperty("X-LIVEAGENT-AFFINITY", objSession.getString("affinityToken"));
     con.setRequestProperty("X-LIVEAGENT-SESSION-KEY", objSession.getString("key"));
     
-     System.out.println("\n\nSync Session Call Response Code : " + con.getResponseCode());
+     //System.out.println("\n\nSync Session Call Response Code : " + con.getResponseCode());
     }
 
     public void sendChatRequest(JsonObject objSession) throws Exception{
