@@ -17,22 +17,23 @@ public class ApiApplication {
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(ApiApplication.class, args);
 		Api api = new Api();
-		JsonObject objSession = api.getSessionDetails();
-		//System.out.println("ObjSession"+objSession);
-		api.sendChatRequest(objSession);
-		System.out.println("Digite \"Entrar\" Para conversar com o Blitz e \"Sair\" para finalizar sua sessão");
-		Scanner console = new Scanner(System.in);
-		console.nextLine();	
 		
+	
+		String sair = "";
+		JsonObject objSession = api.getSessionDetails();
+		api.sendChatRequest(objSession);
 		do {
+			
+		
 		new MessageResponse().ReadChatDetails(objSession);
 		 //String saida = 
 		new SendMessage().SendChatMessage(objSession);
 		api.syncChatSession(objSession);
+		
 		/*if(saida.equals("sair")) {
 		break;	
 		}*/
-		}while(!console.equals("sair"));
+		}while(!sair.equals("sair"));
 		
 		
 		

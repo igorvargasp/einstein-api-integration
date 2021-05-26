@@ -49,18 +49,15 @@ public class SendMessage{
 			 // Send post request
 			String chatMsg = console.nextLine();
 			String jsonPost = Json.createObjectBuilder().add("text", chatMsg).add("isPost", true).build().toString();
-		System.out.println("jsonPost:"+jsonPost);//Uncomment this line to check the JSON request body
+		//System.out.println("jsonPost:"+jsonPost);//Uncomment this line to check the JSON request body
 			con.setDoOutput(true);
 			DataOutputStream wr = new DataOutputStream(con.getOutputStream());
 			wr.writeBytes(jsonPost);
 			wr.flush();
 			wr.close();
 			
-			 //System.out.println("Send Message Response Code : " + con.getResponseCode());
-			/*if(chatMsg.equals("sair") || chatMsg.equals("Sair") ) {
-				return "sair";
-			}
-			return "continuar";*/
+			 con.getResponseCode();
+			
 		
         }
 

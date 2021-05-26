@@ -80,13 +80,14 @@ public void syncChatSession(JsonObject objSession) throws Exception {
         wr.close();
        
         
-         System.out.println("\n\nChat Request Call Response Code : " + con.getResponseCode());
-        System.out.println("\n Responde message: " + con.getResponseMessage());
+         con.getResponseCode();
+        con.getResponseMessage();
+        System.out.println("Digite Entrar para começar o chat");
         }
 
 
             public JsonObject getSessionDetails() throws Exception {
-                System.out.println("Detalhes da sessao");
+               
             JsonObject resObj = null;
             URL endpoint = new URL(LIVE_AGENT_URL + "/chat/rest/System/SessionId");
             HttpURLConnection con = (HttpURLConnection) endpoint.openConnection();
@@ -97,16 +98,16 @@ public void syncChatSession(JsonObject objSession) throws Exception {
             con.setRequestProperty("X-LIVEAGENT-API-VERSION", API_VERSION);
             con.setRequestProperty("X-LIVEAGENT-AFFINITY", "null");
             
-             System.out.println("\n\nSession Call Response Code : " + con.getResponseCode());
+             con.getResponseCode();
             
              // Get the Session details
             JsonReader reader = Json.createReader(con.getInputStream());
             resObj = reader.readObject();
             reader.close();
-            System.out.println("\n\nkey: " + resObj.getString("key"));
+            /*System.out.println("\n\nkey: " + resObj.getString("key"));
             System.out.println("id: " + resObj.getString("id"));
             System.out.println("clientPollTimeout: " + resObj.getInt("clientPollTimeout"));
-            System.out.println("affinityToken: " + resObj.getString("affinityToken"));
+            System.out.println("affinityToken: " + resObj.getString("affinityToken"));*/
             return resObj;
             }
 
