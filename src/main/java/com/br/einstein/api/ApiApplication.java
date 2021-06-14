@@ -1,42 +1,58 @@
 package com.br.einstein.api;
 
-import java.util.Scanner;
 
-import javax.json.JsonObject;
-
-import com.br.einstein.api.model.Api;
-import com.br.einstein.api.model.MessageResponse;
-import com.br.einstein.api.model.SendMessage;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableAsync;
+
+import com.br.einstein.api.model.Telegram;
+import com.br.einstein.api.repository.TelegramRepository;
+import com.br.einstein.api.service.ApiTelegram;
+
 
 @SpringBootApplication
+@EnableAsync
 public class ApiApplication {
 
+	@Autowired
+	public static TelegramRepository repository;
+	
+	
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(ApiApplication.class, args);
-		Api api = new Api();
-		
-	
+		/*ApiEinstein api = new ApiEinstein();
+		Message messages = new Message();
+		Update update = new Update();
+    	//Chat chat = new Chat();
+    	messages.getReplyToMessage();
 		String sair = "";
 		JsonObject objSession = api.getSessionDetails();
 		api.sendChatRequest(objSession);
+		
+		new ApiTelegram().registerBot();
+		
 		do {
-			
-		
-		new MessageResponse().ReadChatDetails(objSession);
-		 //String saida = 
-		new SendMessage().SendChatMessage(objSession);
+		List<String> list =  new ApiEinstein().ReadChatDetails(objSession);
+
+    	//chat.setId((long) 1372667777);
+    	messages.setText(list.toString());  	
+    	//messages.setChat(chat);
+    	update.setMessage(messages);
+    	new ApiTelegram().onUpdateReceived(update);
+		new ApiEinstein().SendChatMessage(objSession);		
 		api.syncChatSession(objSession);
+		}while(!sair.equals("sair"));*/
+		new ApiTelegram().registerBot();
+		//new ApiTelegram().run(args);
 		
-		/*if(saida.equals("sair")) {
-		break;	
-		}*/
-		}while(!sair.equals("sair"));
+		
+	
 		
 		
 		
 	}
+	
+	
 
 }
