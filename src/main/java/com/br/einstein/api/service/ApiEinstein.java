@@ -25,7 +25,7 @@ import com.br.einstein.api.model.Telegram;
 public class ApiEinstein {
 
 	private final String USER_AGENT = "Mozilla/5.0";
-	private final String LIVE_AGENT_URL = "https://d.la3-c2-ia4.salesforceliveagent.com";
+	private final String LIVE_AGENT_URL = "YOUR LIVE AGENT API HERE";
 	private final String API_VERSION = "52";
 	public JsonObject objSession;
 
